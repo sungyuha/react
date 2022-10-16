@@ -10,9 +10,10 @@ function App() {
   useEffect(() => {
     console.log("CALL THE API...");
   }, []);
+  console.log("Search for", keyword);
   return (
     <div>
-      <input value={keyword} onChange={onChange} type="text" placeholfer="Search here!"/>
+      <input value={keyword} onChange={onChange} type="text" placeholder="Search here!"/>
       <h1>{counter}</h1>
       <button onClick={onClick}>Click me</button>
       {/* 
