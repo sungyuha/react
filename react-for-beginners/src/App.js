@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
 
 function Hello() {
-  useEffect(() => {
-    console.log("I'm here");
-  }, [])
-  return (
-    <h1>Hello</h1>
-  )
+  function byFn() {
+    console.log("bye :(");
+  }
+  function hiFn() {
+    console.log("created :)");
+    return byFn;
+  }
+  useEffect(hiFn, []);
+  return <h1>Hello</h1>;
 }
+  /* useEffect(() => {
+    // 컴포넌트를 새로 만들 때는 useEffect 사용 필수
+    return () => console.log("destroyed :(");
+  }, [])
+  return <h1>Hello</h1>;
+    // function 값을 리턴해줌
+    // 컴포넌트를 활용해서 event listener를 지우거나 console.log에 뭔가를 보야줌
+}*/
 
 function App() {
   const [showing, setShowing] = useState(false);
