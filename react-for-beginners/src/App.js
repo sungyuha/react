@@ -8,9 +8,16 @@ function App() {
   console.log("i run all the time");
   // useEffect fun 은 코드가 단 한 번만 실행되도록 작동
   useEffect(() => {
-    console.log("CALL THE API...");
+    console.log("CALL THE API..."); 
+    // 내가 원하는 콘솔만 찍힘
   }, []);
-  console.log("Search for", keyword);
+  // 빈 array를 실행시켰을때 코드가 단 한 번만 실행되는 이유는
+  // 아래에 keyword값이 변화할때만 실행 되서
+  useEffect(() => {
+  console.log("Search for", keyword); 
+  // keyword가 변화 할 때 코드를 실행하고 싶다면 keyword작성
+  // keyword 값이 변화할 떄만 실행되는 코드
+  }, [keyword]);
   return (
     <div>
       <input value={keyword} onChange={onChange} type="text" placeholder="Search here!"/>
