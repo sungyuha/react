@@ -14,9 +14,15 @@ function App() {
   // 빈 array를 실행시켰을때 코드가 단 한 번만 실행되는 이유는
   // 아래에 keyword값이 변화할때만 실행 되서
   useEffect(() => {
-  console.log("Search for", keyword); 
+  /* console.log("Search for", keyword); */
   // keyword가 변화 할 때 코드를 실행하고 싶다면 keyword작성
   // keyword 값이 변화할 떄만 실행되는 코드
+    if ( keyword !== "" && keyword.length > 5 ) { 
+      // keyword가 빈 값이 아니라면 그 때 keyword를 검색
+      // keyword.length가 5 보다 길때 조건
+      // 실행되는 이듀는 keyword의 길이값이 5보다 길 때 검색
+      console.log("SEARCH FOR", keyword);
+    }
   }, [keyword]);
   return (
     <div>
