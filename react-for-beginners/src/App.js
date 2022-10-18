@@ -8,17 +8,28 @@ function Hello() {
     console.log("created :)");
     return byFn;
   }
-  useEffect(hiFn, []);
+  /* useEffect(function () {
+    console.log("hi :)");
+    return () => console.log("bye :(");
+  }, []);   
+  useEffect(function () {
+    console.log("hi :)");
+    return function() {
+      console.log("bye :(");
+    }
+  }, []);
+  // useEffect(hiFn, []);
   return <h1>Hello</h1>;
-}
-  /* useEffect(() => {
+  // 현재는 자주 쓰이지 않는 코드
+} */
+  useEffect(() => {
     // 컴포넌트를 새로 만들 때는 useEffect 사용 필수
     return () => console.log("destroyed :(");
   }, [])
   return <h1>Hello</h1>;
     // function 값을 리턴해줌
     // 컴포넌트를 활용해서 event listener를 지우거나 console.log에 뭔가를 보야줌
-}*/
+}
 
 function App() {
   const [showing, setShowing] = useState(false);
