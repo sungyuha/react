@@ -16,12 +16,15 @@ function App(){
     setoDo("");
     // array르 직접족으로 수정하지 않으면서 setoDos로 array에 element를 추가하는 방법
     // 여기에 직전의 값(prevens Value)를 받아올거
-    setoDos(currnetArray => [toDo])
+    setoDos(currnetArray => [toDo, ...currnetArray]);
+    // 새로운 array는 state에 있는 toDo
+    // 더 정확하게 하기 위해서 currnetArray라고 명시 / 그리고 뒤에 함수
   };
     console.log(toDos);
   // array를 직접적으로 수정하지 않으면서 setToDos로 array에 element를 추가하는 방법
   return (
     <div>
+      <h1>My To Dos ({toDos.length})</h1>
       <form onSubmit={onSubmit}>
         <input 
           onChange={onChange} 
