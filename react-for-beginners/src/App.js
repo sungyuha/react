@@ -37,6 +37,11 @@ function App(){
         />
         <button>Add TO Do</button>
       </form>
+      <hr />
+      {toDos.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+      {/* map은 element들을 다 바꾸고 싶고, 다 바뀐 새로운 array를 가지고 싶을 때  map은 이 안에 함수를 넣을 수 있도록 해줌 -> 이 함수는 array의 모든 item에 대해 실행 */}
     </div>
   );
 }
