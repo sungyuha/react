@@ -8,7 +8,7 @@ function App () {
         <>
             <h2>Let's get started!</h2>
             <ExpenseItem></ExpenseItem>
-            <p>This is alsp visble!</p>
+            {/* <p>This is alsp visble!</p> */}
         </>
         // JSX는 자바스크립트 XML을 의미
     );
