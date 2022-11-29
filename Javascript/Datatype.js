@@ -26,3 +26,18 @@ console.log(secondPerson);
 // 7. 복사 된 것을 가진 다음에 person.name을 Maun로 변경하면 
 // 8. Max가 출력 되는것이 아닌, person을 복사해서 secondPerson에 저장했기 때문에 이름이 변경 되지 않음
 // 9. 8번과 같은 이유는 단지 포인터를 복사했고, person아 가리키는 메모리에 있는 동일한 객체를 가리키기 때문
+
+// **객체와 배열이 참조형 자료 타입
+// 만약 재할당한다면, 값이 아닌 포인터를 복사하는 것이고, 진짜로 복사하고 싶다면, 새로운 객채를 생성해서 전체 객체를 복사하는 것이 아니라 프로퍼티를 복사햐여 함
+
+const person = {
+    name: 'Max'
+};
+
+const secondPerson2 = {
+    ...person
+};
+
+person.name = 'Maun';
+
+console.log(secondPerson2);
