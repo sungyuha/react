@@ -1,3 +1,4 @@
+import React from "react";
 import Expense from "./components/Expense";
 
 function App () {
@@ -22,14 +23,23 @@ function App () {
             date: new Date(2022, 11, 30),
         },
     ];
-    
-    return (
-        <>
-            <h2>Let's get started!</h2>
-            <Expense items={expenses} />
-            {/* items속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses 컴포넌트 안에 있는 속성으로 추출해서 모든 expenses를 랜더링 함 */}
-        </>
+
+    return React.createElement(
+        'div', 
+        {}, 
+        React.createElement('h2', {}, "Let's get started!"),
+        React.createElement(Expense, {items: expenses})
+        // 사용자 지정 컴포넌트
+        // 리액트를 사용하는 JSX
     );
+    
+    // return (
+    //     <>
+    //         <h2>Let's get started!</h2>
+    //         <Expense items={expenses} />
+    //         {/* items속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses 컴포넌트 안에 있는 속성으로 추출해서 모든 expenses를 랜더링 함 */}
+    //     </>
+    // );
 };
 
 export default App;
