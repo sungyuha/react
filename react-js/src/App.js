@@ -19,17 +19,18 @@ function App () {
             id: 'e4',
             title: 'New Desk (Wooden)',
             amount: 450,
-            date: new Date(2021, 5, 12),
+            date: new Date(2022, 11, 30),
         },
     ];
     
     return (
         <>
             <h2>Let's get started!</h2>
-            <ExpenseItem title={expenses[0].title} amount={expenses[0].amount}></ExpenseItem>
-            <ExpenseItem></ExpenseItem>
-            <ExpenseItem></ExpenseItem>
-            {/* <p>This is alsp visble!</p> */}
+            <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date}></ExpenseItem>
+            <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date}></ExpenseItem>
+            <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date}></ExpenseItem>
+            <ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date}></ExpenseItem>
+            {/* 여기서는 props가  title, amount, date */}
         </>
         // JSX는 자바스크립트 XML을 의미
     );
