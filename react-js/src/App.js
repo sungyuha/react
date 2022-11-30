@@ -1,7 +1,8 @@
 import React from "react";
 import Expense from "./components/Expenses/Expense";
 
-function App () {
+const App = () => {
+    // 화살표 함수로 사용하기 위해 상수형으로 변경 함 -> 상수에 할당하는 값은 화살표 함수
     const expenses = [
         {
             id: 'e1',

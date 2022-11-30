@@ -2,7 +2,7 @@ import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 import './ExpenseItem.css';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
     // props 사용자 시점에서 모든 값을 가지고 있는 객체
     // props 객체에서 key와 vlaue로 이루어진 파일 포맷을 얻는데 그것은 리액트에 의해 자동으로 전달 됨
 
