@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem";
+import Expense from "./components/Expense";
 
 function App () {
     const expenses = [
@@ -26,29 +26,9 @@ function App () {
     return (
         <>
             <h2>Let's get started!</h2>
-            <ExpenseItem 
-                title={expenses[0].title} 
-                amount={expenses[0].amount} 
-                date={expenses[0].date} 
-            />
-            <ExpenseItem 
-                title={expenses[1].title} 
-                amount={expenses[1].amount} 
-                date={expenses[1].date} 
-            />
-            <ExpenseItem 
-                title={expenses[2].title} 
-                amount={expenses[2].amount} 
-                date={expenses[2].date} 
-            />
-            <ExpenseItem 
-                title={expenses[3].title} 
-                amount={expenses[3].amount} 
-                date={expenses[3].date} 
-            />
-            {/* 여기서는 props가  title, amount, date */}
+            <Expense items={expenses} />
+            {/* items속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses 컴포넌트 안에 있는 속성으로 추출해서 모든 expenses를 랜더링 함 */}
         </>
-        // JSX는 자바스크립트 XML을 의미
     );
 };
 
