@@ -1,7 +1,8 @@
+import { checkPropTypes } from "prop-types";
 import React, { useState } from "react";
 import './NewExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setenteredTitle] = useState('');
     // 두 요소를 얻기 위해서 구조 분해 할당을 사용할 수 있음
     const [enteredAmount, setenteredAmount] = useState('');
@@ -58,7 +59,9 @@ const ExpenseForm = () => {
             // 프로퍼티를 전달
         };
 
-        console.log(expenseDeta);
+        props.onSaveExpenseData(expenseDeta); // expenseDeta를 인자로 전달
+        // 매개변수로 데이터 전달
+        // console.log(expenseDeta);
         // 출력 함수에 expenseDeta 전달
         setenteredTitle('');
         setenteredAmount('');

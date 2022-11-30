@@ -26,6 +26,11 @@ const App = () => {
         },
     ];
 
+    const addExpenseHandler = expenses => {
+        console.log('In App.js');
+        console.log(expenses);
+    };
+
     // return React.createElement(
     //     'div', 
     //     {}, 
@@ -37,9 +42,10 @@ const App = () => {
     
     return (
         <>
-            <NewExpense />
+            <NewExpense onAddExpense={addExpenseHandler} />
             <Expense items={expenses} />
             {/* items속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses 컴포넌트 안에 있는 속성으로 추출해서 모든 expenses를 랜더링 함 */}
+            {/* 반환되는 JSX코드에서 두 컴포넌트를 모두 랜더링 하기 때문 */}
         </>
     );
 };
