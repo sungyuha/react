@@ -7,7 +7,7 @@ const doubleNumArray = numbers.map((num) => { // num은 매개변수
     // 배열의 각 원소에서 이 함수가 실행 됨
     return num * 2;
 });
-// map은 내장돈 배열 메소드
+// map은 내장된 배열 메소드
 // map() 함수는 예전 값을 새 값으로 반환
 // map(은 새로은 배열로 반환
 
