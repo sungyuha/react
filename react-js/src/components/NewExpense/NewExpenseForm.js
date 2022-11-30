@@ -1,4 +1,4 @@
-import { checkPropTypes } from "prop-types";
+// import { checkPropTypes } from "prop-types";
 import React, { useState } from "react";
 import './NewExpenseForm.css';
 
