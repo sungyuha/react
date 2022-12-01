@@ -42,7 +42,7 @@ const ExpenseItem = (props) => {
                 <div className="expense-item__price">${props.amount}</div>
                 {/* 사용자 인터페이스를 구축하는 이런 접근 방법응ㄹ 일반적으로 합성이라고 함 */}
             </div>
-            <button onClick={ClickHander}>Change Title</button>
+            {/* <button onClick={ClickHander}>Change Title</button> */}
             {/* 버튼을 클릭했을 때 h2가 출력되는 title이 변경 */}
             {/* 모든 이벤트 핸들러 props는 값으로  */}
             {/* () => {console.log('Cliked!') */}

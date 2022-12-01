@@ -5,23 +5,36 @@ import './Expense.css';
 import { useState } from "react";
 
 const Expense = (props) => { // 매개변수 props
-    const [] = useState();
+    const [filteredYear, setfilteredYear] = useState('2022');
 
     const filterChangeHandler = selectedYear => {
-        console.log('Expense.js');
-        console.log(selectedYear);
+        // console.log('Expense.js');
+        // console.log(selectedYear);
+        setfilteredYear(selectedYear);
     };
 
     return (
         <div>
             <Card className='expenses'>
-                <ExpenseFilter />
-                <ExpenseItem 
+                <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+                {/* selected에 선택 된 ExpenseFilter 안에서 드롭다운 값을 설정 */}
+                {props.items.map((expense) => (
+                    <ExpenseItem 
+                        title={expense.tilte} 
+                        amount={expense.amount} 
+                        date={expense.date} 
+                    />
+                ))}
+                {/* map은 매개뱐수를 통해 함수를 반환하고 그 함수는 배열에 있는 모든 요소를 실행해서 현재 매개변수로 실행되고 있는 요소를 얻음 */}
+                {/*  expense는 자동적으로 함수를 매개변수로 전달하는데 map이 작동하는 방식 */}
+                {/* {expense.tilte}의 expense는 tilte를 추출하기 위해 사용 */}
+
+                {/* <ExpenseItem
                     title={props.items[0].title} // 컴포넌트 이름을 expenses말고 items로 변경 가능
                     amount={props.items[0].amount} 
                     date={props.items[0].date} 
                 />
-                <ExpenseItem 
+                <ExpenseItem
                     title={props.items[1].title} 
                     amount={props.items[1].amount} 
                     date={props.items[1].date} 
@@ -35,12 +48,12 @@ const Expense = (props) => { // 매개변수 props
                     title={props.items[3].title} 
                     amount={props.items[3].amount} 
                     date={props.items[3].date}
-                />
+                /> */}
                 {/* 여기서는 props가  title, amount, date */}
             {/* // JSX는 자바스크립트 XML을 의미 */}
             </Card>
         </div>
-    )
-}
+    );
+};
 
 export default Expense;
