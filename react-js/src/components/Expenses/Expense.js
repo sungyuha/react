@@ -19,26 +19,35 @@ const Expense = (props) => { // 매개변수 props
         //필터링 된 연도와 일치하는 연도의 아이템만이 이 filteredExpenses 배열에 남겨짐
     });
 
+    let expensesContent = <p>No expenses found</p> // 변수에 기본값을 할당
+
+    if (filteredExpenses.length > 0) {
+        // map 메소드를 호출했을때
+        expensesContent = filteredExpenses.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                // 특정 아이템은 모두 고유의 id값을 가지고 있어야 함
+                title={expense.tilte} 
+                amount={expense.amount} 
+                date={expense.date} 
+            />
+        ));
+        {/* map은 매개뱐수를 통해 함수를 반환하고 그 함수는 배열에 있는 모든 요소를 실행해서 현재 매개변수로 실행되고 있는 요소를 얻음 */}
+        {/*  expense는 자동적으로 함수를 매개변수로 전달하는데 map이 작동하는 방식 */}
+        {/* {expense.tilte}의 expense는 tilte를 추출하기 위해 사용 */}
+    };
+
     return (
         <div>
             <Card className='expenses'>
-                <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+                <ExpenseFilter 
+                    selected={filteredYear} 
+                    onChangeFilter={filterChangeHandler} 
+                />
                 {/* selected에 선택 된 ExpenseFilter 안에서 드롭다운 값을 설정 */}
-                {filteredExpenses.length === 0 ? (
-                    <p>No expenses found</p> 
-                    ) : 
-                        filteredExpenses.map((expense) => (
-                            <ExpenseItem
-                            key={expense.id}
-                            // 특정 아이템은 모두 고유의 id값을 가지고 있어야 함
-                            title={expense.tilte} 
-                            amount={expense.amount} 
-                            date={expense.date} 
-                        />
-                    ))}
-                    {/* map은 매개뱐수를 통해 함수를 반환하고 그 함수는 배열에 있는 모든 요소를 실행해서 현재 매개변수로 실행되고 있는 요소를 얻음 */}
-                    {/*  expense는 자동적으로 함수를 매개변수로 전달하는데 map이 작동하는 방식 */}
-                    {/* {expense.tilte}의 expense는 tilte를 추출하기 위해 사용 */}
+                {/* {filteredExpenses.length === 0 && <p>No expenses found</p> }
+                {filteredExpenses.length > 0 && } */}
+                {expensesContent}
 
                 {/* <ExpenseItem
                     title={props.items[0].title} // 컴포넌트 이름을 expenses말고 items로 변경 가능
