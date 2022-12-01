@@ -1,34 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Expense from "./components/Expenses/Expense";
 import NewExpense from "./components/NewExpense/NewExpense";
 
+const DUMMY_EXPENSES = [
+    {
+        id: 'e1',
+        title: 'Toilet Paper',
+        amount: 94.12,
+        date: new Date(2020, 7, 14),
+    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+        id: 'e3',
+        title: 'Car Insurance',
+        amount: 294.67,
+        date: new Date(2021, 2, 28),
+    },
+    {
+        id: 'e4',
+        title: 'New Desk (Wooden)',
+        amount: 450,
+        date: new Date(2022, 11, 30),
+    },
+];
+
 const App = () => {
     // 화살표 함수로 사용하기 위해 상수형으로 변경 함 -> 상수에 할당하는 값은 화살표 함수
-    const expenses = [
-        {
-            id: 'e1',
-            title: 'Toilet Paper',
-            amount: 94.12,
-            date: new Date(2020, 7, 14),
-        },
-        { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-        {
-            id: 'e3',
-            title: 'Car Insurance',
-            amount: 294.67,
-            date: new Date(2021, 2, 28),
-        },
-        {
-            id: 'e4',
-            title: 'New Desk (Wooden)',
-            amount: 450,
-            date: new Date(2022, 11, 30),
-        },
-    ];
+    const [expenses, setExpenses ] = useState(DUMMY_EXPENSES);
 
-    const addExpenseHandler = expenses => {
-        console.log('In App.js');
-        console.log(expenses);
+    const addExpenseHandler = expense => {
+        // console.log('In App.js');
+        // console.log(expenses);
+        setExpenses( provExpenses => {
+            return [expense, ...provExpenses]; // 스프레드 연산자 ...provExpenses
+        });
     };
 
     // return React.createElement(

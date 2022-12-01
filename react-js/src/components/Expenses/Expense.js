@@ -19,7 +19,9 @@ const Expense = (props) => { // 매개변수 props
                 <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
                 {/* selected에 선택 된 ExpenseFilter 안에서 드롭다운 값을 설정 */}
                 {props.items.map((expense) => (
-                    <ExpenseItem 
+                    <ExpenseItem
+                        key={expense.id}
+                        // 특정 아이템은 모두 고유의 id값을 가지고 있어야 함
                         title={expense.tilte} 
                         amount={expense.amount} 
                         date={expense.date} 
