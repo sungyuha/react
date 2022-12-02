@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import NewExpenseForm from "./NewExpenseForm";
 import './NewExpense.css';
 
 const NewExpense = (props) => {
+    const [isEditing, setIsEditing] = useState(false);
     const saveExpenseDataHandler = (enteredExpenseData) => { // 상수 saveExpenseDataHandler / enteredExpenseData는 매개변수
         const expenseData = {
             ...enteredExpenseData,
@@ -11,11 +12,21 @@ const NewExpense = (props) => {
         // console.log(expenseData);
         // 매개변수로 전달 받는 값
         props.onAddExpense(expenseData);
+        setIsEditing(false);
+    };
+
+    const startEditingHandler = () => {
+        setIsEditing(true);
+    };
+
+    const stopEditingHandler = () => {
+        setIsEditing(false);
     };
 
     return (
         <div className="new-expense">
-            <NewExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
+            {isEditing && <NewExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} />}
             {/* NewExpenseForm로 전달 */}
             {/* 리액트에서 자주 사용하게 될 패턴 -> 자식에서 부모 컴포넌트로 소통하는 방법 */}
         </div>
