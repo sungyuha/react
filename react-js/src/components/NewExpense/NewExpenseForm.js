@@ -54,7 +54,7 @@ const ExpenseForm = (props) => {
 
         const expenseDeta = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
             // 프로퍼티를 전달
         };

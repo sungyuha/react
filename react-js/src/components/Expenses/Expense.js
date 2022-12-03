@@ -2,6 +2,7 @@
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpensesList from "../NewExpense/ExpensesList";
+import ExpensesChart from '../Chart/ExpensesChart';
 import './Expense.css';
 import { useState } from "react";
 
@@ -72,6 +73,7 @@ const Expense = (props) => { // 매개변수 props
                 /> */}
                 {/* 여기서는 props가  title, amount, date */}
                 {/* // JSX는 자바스크립트 XML을 의미 */}
+                <ExpensesChart expenses={filteredExpenses} />
                 <ExpensesList items={filteredExpenses} />
             </Card>
         </div>
