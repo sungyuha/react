@@ -21,3 +21,15 @@ const value = useMemo(() => {
     // 두 번째 인자로는 배열 - 의존성 배열
     // useMemo는 요소의 값이 업데이트 될때만 콜백함수를 다시 호출해서 메모이제이션 값을 업데이트 해서 다시 메모이제이션을 해줌
 }, [item]); 
+
+
+*자바스크립트 타입
+
+원시(Primitive) 타입 |  객체(Object) 타입
+- String           |  -> 원시 타입을 제외한 모든 것
+- Number           |  - Object
+- Boolean          |  - Array
+- Null             |  ...
+- Undefined        |
+- Biglnt           |
+- Symbol           |

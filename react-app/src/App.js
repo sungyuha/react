@@ -7,6 +7,11 @@ function App() {
     // location 변수
     const location = isKorea ? '한국' : '외국';
 
+    // Object 할당
+    /*const location = {
+        country: isKorea ? '한국' : '외국',
+    };*/
+
     // useEffect은 화면이 렌더링 될 때와 화면이 변동될 때 실행 됨
     useEffect(() => {
         console.log('useEffect호출');
@@ -25,7 +30,7 @@ function App() {
             <hr />
             <h2>어느 나라에서 있어요?</h2>
             {/* 버튼을 눌러주면  isKorear가 외국으로 변동되서 외국으로 변경 됨 */}
-            <p>나라 : {location}</p>
+            <p>나라 : {location.country}</p>
             <button onClick={() => setisKorea(!isKorea)}>비행기 타자</button>
         </div>
     );
