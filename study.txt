@@ -36,3 +36,16 @@ const value = useMemo(() => {
 
 3. useCallback : 컴포넌트 최적화
 인자로 전달 한 콜백 함수 그 자체를 함수자체를 메모이제이션 해줌
+
+useCallback 구조 - 
+1 - useCallback은 두 개의 인자를 받음
+2 - 하나의 인자는 메모이제이션 해줄 콜백함수
+3 - 두 번째 인자는 의존성 배열을 받음
+
+    // 함수를 useCallback으로 감싸주면 calcutate은 
+예시. const calcutate = useCallback((num) => { 
+    // 콜백함수 안의 값을 갖게 됨
+    return num + 1;
+    // 이렇게 메모이제이션 된 calcutate는 의존성 배열을 갖게 됨 (내부의 값이 변경 되지 않는 이상 다시 초기화 되지 않음)
+},[item]);
+

@@ -1,57 +1,39 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useState} from "react";
 
-const hardCalculate = (number) => {
-  console.log('어려운 계산기');
-  for (let i = 0; i < 99999999; i++) {} // 생각하는 시간
-  return number + 10000;
-}
-
-const easyCalculate = (number) => {
-  console.log('정말 쉬운 계산기');
-  return number + 1;
-}
-
-// 렌더링이 된다는 말은 App 함수가 호출 되는 것
 function App() {
-  const [hardNumber, sethardNuber] = useState(1);
-  const [easyNumber, seteasyNember] = useState(1);
+    const [number, setNumber] = useState(0);
+    const [isKorea, setisKorea] = useState(true);
 
-  // 함수 내부에 있는 변수는 초기화가 됨
-  // const harSum = hardCalculate(hardNumber);
-  
-  /* useMemo는 두 가지 안자를 받아옴
-  1- 콜백함수, 2- 배열
-  */
-  const hardSum = useMemo(() => {
-    // 콜백함수의 리턴 값으로 메모아이징할 값을 정해줌
-    return hardCalculate(hardNumber);
-    // 배열
-  }, [hardNumber]);
+    // location 변수
+    const location = isKorea ? '한국' : '외국';
 
-  // 함수형 컴포넌트라 다시 랜더링 되어서 호출이 약간 늦음(1초 정도 딜레이)
-  const easySum = easyCalculate(easyNumber);
-  
-  return (
-    <div>
-      <h3>어려운 계산기
-        <input className='input'
-          type="number"
-          value={hardNumber}
-          onChange={(e) => sethardNuber(parseInt(e.target.value))}
-        />
-        <span> + 10000 = {hardSum}</span>
-      </h3>
+    // Object 할당
+    /*const location = {
+        country: isKorea ? '한국' : '외국',
+    };*/
 
-      <h3>쉬운 계산기
-        <input className='input'
-          type="number"
-          value={easyNumber}
-          onChange={(e) => seteasyNember(parseInt(e.target.value))}
-        />
-        <span> + 1 = {easySum}</span>
-      </h3>
-    </div>
-  );
+    // useEffect은 화면이 렌더링 될 때와 화면이 변동될 때 실행 됨
+    useEffect(() => {
+        console.log('useEffect호출');
+        // 의존성 배열에는 location
+        // useEffect가 불릴지 말지 판단하는것은 의존정 배열인 location 렌더링 이후에 차이가 있는지 확인 -> 그래서 location 값이 변동 될 때만 호출 됨
+    }, [location]);
+
+    return (
+        <div>
+            <h2>하루에 몇 끼 먹어요?</h2>
+            <input
+                type="number"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+            />
+            <hr />
+            <h2>어느 나라에서 있어요?</h2>
+            {/* 버튼을 눌러주면  isKorear가 외국으로 변동되서 외국으로 변경 됨 */}
+            <p>나라 : {location.country}</p>
+            <button onClick={() => setisKorea(!isKorea)}>비행기 타자</button>
+        </div>
+    );
 }
 
 export default App;
