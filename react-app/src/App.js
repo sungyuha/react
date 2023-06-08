@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 function App() {
     const [number, setNumber] = useState(0);
-
+    const [toggle, setToggle ] = useState(true);
 
     const someFunction = useCallback(() => { // someFunction 안에 함수 겍체가 메모이제이션
         console.log(`someFunc: number: ${number}`); 
@@ -21,6 +21,7 @@ function App() {
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
             />
+            <button onClick={() => setToggle(!toggle)}>{toggle.toString()}</button>
             <br />
             <button onClick={someFunction}>Call somFunc</button>
         </div>
