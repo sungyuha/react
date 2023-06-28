@@ -16,7 +16,10 @@ Custom Hooks 이란?
 2) 리액트 훅을 사용할거니 앞에 use를 붙여야 함, 
 3)그래야 리액트 훅으로 사용 가능 
 */
-export function useInput(initiaValue) { // 괄호 란에는 input에 들어갈 초기값
+
+// 괄호 란에는 input에 들어갈 초기값
+// 매개변수로 submitAction
+export function useInput(initiaValue, submitAction) {
     // 기본적인 useState 상태관리
     const [inputValue, setInputValue] = useState(initiaValue); // useState에 초기값 전달
 
@@ -25,6 +28,14 @@ export function useInput(initiaValue) { // 괄호 란에는 input에 들어갈 �
         setInputValue(e.target.value);
     };
 
-    // 배열 안에는 input값을 가지고 있을 inputValue, handleChange도 
-    return [inputValue, handleChange];
+    const handleSubmit = () => {
+        // setInputValue 를 초기값으로
+        setInputValue("");
+        // 매개변수로 받아온 submitAction을 호출. 인자로는 inputValue
+        submitAction(inputValue);
+    }
+
+    // 1) 배열 안에는 input값을 가지고 있을 inputValue, 
+    // 2) handleChange도, 다른 데도 사용할수 있게 리턴값으로 handleSubmit
+    return [inputValue, handleChange, handleSubmit];
 } 
