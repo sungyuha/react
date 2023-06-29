@@ -1,32 +1,24 @@
-import { useInput } from './useinput';
-
-function displayMessage(message) { // 매개변수로 message 전달
-    alert(message);
-}
+import {useEffect} from "react";
 
 function App() {
-    // 커스텀 훅
-    // useInput이 반환해주는 값을
-    const [inputValue, handleChange, handleSubmit] = useInput(
-        // 초기값은 빈 문자열
-        '',
-        // displayMessage를 useInput의 두 번째 인자로 넣어줌
-        displayMessage
-    );
+    // {/* 네트워크상에서 데이터를 가져올 때 Fetch api를 가장 많이 사용 */}
 
-    /* // 확인 버튼 누르면 모달창
-    const handleSubmit = () => {
-        alert(inputValue);
-        // 확인 버튼 누르면 초기화
-        // setInputValue('');
-    }*/
+    useEffect(() => {
+        // fetch안에다가 네트워크 상에서 가져오고 싶은 데이터의 url를 집어넣어줌
+        // 사용할 api는 jsonplacehodler
+        fetch('https://jsonplaceholder.typicode.com/users') // 더미 데이터 반환. 여러명의 노크 유저 데이터를 반환
+        // 가져온 데이터를 json 형태로 변환
+        .then(res => res.json())
+        // 반환 된 값을 콘솔에 출력
+        .then(res => console.log(res));
+
+        // 단 한 번만 useEffect가 실행이 될 수 있도록 빈 의존성 배열로 넣어줌
+    }, [])
 
     return (
         <div>
-            <h1>useInput</h1>
-            {/* input 의 속성으로 넣어주면 */}
-            <input value={inputValue} onChange={handleChange} />
-            <button onClick={handleSubmit}>확인</button>
+            {/* fetch api를 통해서 네트워크 상에서 데이터를 가져오는 기능을 해주는 커스텀훅 */}
+            <h1>useFetch</h1>
         </div>
     )
 }
