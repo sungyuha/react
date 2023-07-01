@@ -22,6 +22,7 @@ export function useFetch(baseUrl, initialType) { // 매개변수로 전달
         fetchUrl(initialType); // 맵처음에 불릴 useEffect의 fetchUrl 인자로 initialType
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    // useCallback으로 경고 메시지 없애기
 
     // 콘설에 출력
     //console.log(data);
