@@ -35,11 +35,37 @@ function List() {
                     
                     // 각 항목에 key값을 넣어줌
                     // 리스트 형태로 만든 엘리먼트들은 꼭 안정적이고 고유한 Key값을 가져야 함(중요!)
-                    return <li key={item}>{item}</li>
+                    return <li key={item}>{item}</li>;
+                    // 작성한 요소만 업데이트 해줌
+                    // 리액트가 각 항목의 key를 가지고 있기 때문! 어떤 항목이 변경 및 변경 되지 않았는지 알 수 있음
+                
+                    /*
+                        {list.map((item, index) => {
+                            return <li key={index}>{item}</li>;
+                        }        
+                        key 값으로 Index을 사용하면 디버깅으로 힘들어지는 이유!!
+                        1) 전체 항목이 돔 상에서 업데이트 됨
+                        2) index라는 값은 안정적이지 않음
+                        3) 리액트는 키 값이 안정적이지 않는 것을 아니까 전체 항목이 업데이트 됨
+                        4) 변경 될 수 있는 리스트가 있으면 index 값을 key로 넣어주면 좋지 않음
+                        5) 동 적인 리스트를 만들 때는 index를 key값으로 사용하는건 지양
+
+                        - 버그 같은 상황(디버깅 필요!!)
+                        {list.map((item, index) => {
+                            return (
+                                <div>
+                                    <li key={index}>{item}</li>
+                                    <input />
+                                </div>
+                                // 버그 같은 현상이 발생
+                                // index값이 안정적이지 않아서 발생하는 상황을 알지 못했다면 디버깅이 오래 걸럈을 오류 상황
+                            );
+                        }
+                    */
                 })}
             </ul>
         </>
     );
-}
+};
 
 export default List;
