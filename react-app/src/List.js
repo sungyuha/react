@@ -3,12 +3,36 @@ import { useState } from "react";
 function List() {
     const [inputValue, setInputValue] = useState('');
     // useState의 초기값으로 배열을 넣어줌
+    /* 
+    중복 된 key가 아닐 때 사용
     const [list, setList] = useState(['밥먹기', '코딩하기']);
+    */ 
+    const [list, setList] = useState([
+        {
+            id: 1,
+            value: '밥먹기'
+        },
+        {
+            id: 2,
+            value: '코딩하기'
+        },    
+    ]);
 
     // input 안에 있는 값을 가져다가 list 맨 위에 추가해주는 addToList 함수
     const addToList = () => {
-        setList(prevList => {
-            return [inputValue, ...prevList];
+        setList((prevList) => {
+            // 각 항목의 key값은 고유해야 함
+            return [{
+                // id는 list에 + 1 더하기(이렇게 하면 숫자열이니 되니 빈 문자열 더함)
+                // id값을 문자열로 
+                id: list.length + 1 + "",
+                // 값은 inputValue
+                value: inputValue,
+            }, 
+            ...prevList];
+
+            /* 중복 된 key가 아닐때 사용
+            return [inputValue, ...prevList]; */
         });
         // input안에 들어있는 값 초가화
         setInputValue('');
@@ -35,7 +59,7 @@ function List() {
                     
                     // 각 항목에 key값을 넣어줌
                     // 리스트 형태로 만든 엘리먼트들은 꼭 안정적이고 고유한 Key값을 가져야 함(중요!)
-                    return <li key={item}>{item}</li>;
+                    return <li key={item.id}>{item.value}</li>;
                     // 작성한 요소만 업데이트 해줌
                     // 리액트가 각 항목의 key를 가지고 있기 때문! 어떤 항목이 변경 및 변경 되지 않았는지 알 수 있음
                 
@@ -62,6 +86,15 @@ function List() {
                             );
                         }
                     */
+
+                    /*
+                        - 중복 된 key로 인한 문제점
+                        {list.map(item) => {
+                            1) 하나의 키 안에 중복 되는 자식은 버그 같은 상황이 발생
+                            2) 중복 된 키를 가지고 있으면 자녀가 복제될 수 있고, 업데이트가 이상하게 됨 
+                            return <li key={item}>{item}</li>
+                        })}
+                    */    
                 })}
             </ul>
         </>
