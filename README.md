@@ -11,3 +11,4 @@
     - ForwardRef
     - React.Fragment
     - List와 Key의 중요성(list 안에 key값을 넣을 때)
+    - Virtual DOM
