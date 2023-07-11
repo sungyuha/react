@@ -10,14 +10,27 @@ import React, { useState, useReducer } from 'react';
 인자 안에 들어있는 state가 불리는 시점에 money 값이 들어감
 action은 reducer에게 state를 변경해달라고 요구할때. 요구에 대한 내용이 들어감
 */
-const reducer = (state, action) => {
+
+// 리팩토링
+const ACTION_TYPES = {
+    deposit: 'deposit',
+    withdraw: 'withdraw',
+};
+
+const reducer = (state, action) => { // reducer는 전달 된 state 값만 업데이트 시켜줌
     console.log("reducer가 일을 합니다.", state, action);
     // action.type에 따라서
     switch (action.type) {
-        // 만약에 타입이 deposit이면
-        case 'deposit':
+        // 만약에 타입이 deposit이면(예금에 대한 로직)
+        case ACTION_TYPES.deposit:
+        // action 케이스 교채 전 case 'deposit':
             // 더한 겂을 리턴
             return state + action.payload;
+        // 출금에 대한 로직
+        case ACTION_TYPES.withdraw:
+        // action 케이스 교채 전 case 'withdraw':
+            // 뺀 값을 리턴
+            return state - action.payload;
         default:
             // 디폴트 값은 현재 state 반환
             return state;
@@ -58,9 +71,11 @@ function Hooks() {
             <button onClick={() => {
                 // action은 오브젝트 형태로 보냄. 그 안에 type 넣음
                 // payload 안에 현재 input에 들어있는 값을 넣어줌. number state
-                dispatch({ type: "deposit", payload: number });
+                dispatch({ type: ACTION_TYPES.deposit, payload: number });
             }}>예금</button>
-            <button>출금</button>
+            <button onClick={() => {
+                dispatch({ type: ACTION_TYPES.withdraw, payload: number });
+            }}>출금</button>
         </div>
     );
 };
