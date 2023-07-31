@@ -4,6 +4,7 @@ import App from './App';
 import ForwardRef from './ForwardRef';
 import List from './List';
 import Hooks from './Hooks';
+import App9 from './App9';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,5 +13,6 @@ root.render(
     <ForwardRef />
     <List />
     <Hooks />
+    <App9 />
   </>
 );
