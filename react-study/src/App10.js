@@ -9,14 +9,19 @@ context는 꼭 필요할때만!
 import React, {useState} from "react";
 import './pageindex.css';
 import Page from './Components/Page';
+import { ThemeContext } from "./context/ThemeContext";
 
 const App10 = () => {
     const [isDark, setIsDark] = useState(false);
 
     return (
         <div>
-            {/* <h2>useContext + Context API</h2> */}
-            <Page isDark={isDark} setIsDark={setIsDark} />
+            {/* ThemeContext.Provider는 모든 컴포넌트는 value로 집어넣어줌 */}
+            {/* value안에는 전달하고자 하는 데이터를 집어넣어주면 됨 */}
+            <ThemeContext.Provider value={{isDark, setIsDark}}>
+                {/* <h2>useContext + Context API</h2> */}
+                <Page />
+            </ThemeContext.Provider>    
         </div>
     );
 };

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
-const Footer = ({ isDark, setIsDark} ) => {
+const Footer = () => {
+    const {isDark, setIsDark} = useContext(ThemeContext);
 
     // 버튼을 누르면 실행
     const toogleThome = () => {

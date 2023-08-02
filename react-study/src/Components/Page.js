@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import Context from './Content';
 import Footer from './Footer';
 import Header from './Header';
 
-// isDark, setIsDark를 Props로 받아옴
-const Page = ({ isDark, setIsDark }) => {
+const Page = () => {
+    const data = useContext(ThemeContext);
+    console.log('data', data);
+
     return (
         <div className="page">
-            <Header isDark={isDark} />
-            <Context isDark={isDark} />
-            <Footer isDark={isDark} setIsDark={setIsDark} />
+            <Header />
+            <Context />
+            <Footer />
         </div>
     );
 };
