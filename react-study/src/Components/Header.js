@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
+    // useContext 사용
     const {isDark} = useContext(ThemeContext);
-    console.log(isDark);
+    // console.log(isDark);
 
     return (
         <header

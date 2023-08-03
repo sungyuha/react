@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const Content = () => {
+    // useContext사용
     const {isDark} = useContext(ThemeContext);
 
     return (
         <div
             className="content"
             style={{
-                backgroundColor: isDark ? 'black' : 'while',
+                backgroundColor: isDark ? 'black' : 'white',
                 color: isDark ? 'white' : 'black',
             }}
         >

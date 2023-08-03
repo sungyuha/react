@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const Footer = () => {
+    // useContext 사용
     const {isDark, setIsDark} = useContext(ThemeContext);
 
     // 버튼을 누르면 실행

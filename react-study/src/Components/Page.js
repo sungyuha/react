@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Header from './Header';
 
 const Page = () => {
+    // useContext 사용. ThemeContext에 대한 정보 받아옴
     const data = useContext(ThemeContext);
     console.log('data', data);
 
