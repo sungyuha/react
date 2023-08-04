@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from '../context/ThemeContext';
+// import { UserContext } from '../context/UserContext';
 
 const Content = () => {
     // useContext사용
     const {isDark} = useContext(ThemeContext);
+    // const user = UserContext(UserContext);
 
     return (
         <div
