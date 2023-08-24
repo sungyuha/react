@@ -17,7 +17,15 @@ const State = () => {
 
         // state가 바뀌면 UI가 자동으로 업데이트 되는것을 알 수 있음
         setCount2(count2 + 1);
-        // console.log(count, "count 증가?")
+        console.log(count2, "state count2 증가")
+
+        /*
+        state 값은 왜 한 박자씩 느리게 업데이트 될까?
+        1) state가 업데이트 되면 UI를 다시 그려줌
+        2) 함수가 끝나면 값을 업데이트하기 시작함
+        *비동기적임! // setCount2 -> 비동기적
+        3) 그래서 한 박자씩 느리게 업데이트 됨 -> state 쓸때 주의사항!
+        */
     };
 
     return (
