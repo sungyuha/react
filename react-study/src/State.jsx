@@ -8,7 +8,7 @@ State란 React에서 앱의 유동적인 데이터를 다루기 위한 개체
     - 이점이 변수와 다른 점임
 */
 const State = () => {
-    // let count = 0;
+    // let count = 0; // 컴포넌트부터 다시 시작되어 count 변수로 0으로 계속 초기화가 됨, 일반 변수는 기존의 값이 저장 안됨
 
     // 첫 번째는 초기값을 담고 있는 state 변수, 두 번째는 state의 값을 업데이트 해주는 함수
     const [count2, setCount2] = useState(0); // useState에 들어가는 매개변수는 초기값!
@@ -16,7 +16,7 @@ const State = () => {
         // count = count + 1;
 
         // state가 바뀌면 UI가 자동으로 업데이트 되는것을 알 수 있음
-        setCount2(count2 + 1);
+        setCount2(count2 + 1); // state값이 업데이트 될 때 마다 컴포넌트가 다시 실행 됨 -> 그러면서 새로운 값으로 UI 업데이트
         console.log(count2, "state count2 증가")
 
         /*
