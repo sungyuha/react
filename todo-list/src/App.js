@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import TodoBorad from './components/TodoBorad';
+import TodoBorad from './components/TodoList';
 
 function App() {
   const [inputValue, setInputValue] = useState(''); // useState의 초기값은 비어있는 문자열
