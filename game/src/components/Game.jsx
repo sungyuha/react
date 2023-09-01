@@ -16,11 +16,11 @@ const Game = ({rows, columns}) => { // 매개변수로 받아옴
     };
     return (
         <div className='game'>
-            {/* 게임 오버가 되면 / 게임이 시작되면 생김 */}
+            {/* 게임 오버가 되면 */}
             {gameOver ? (
                 <Menu onClick={start} />
             ) : (
-                // 게임이 끝나지 않으면 / 행과 열 표시
+                // 게임이 끝나지 않으면
                 <Tetris rows={rows} columns={columns} setGameOver={setGameOver} />
             )}
         </div>
