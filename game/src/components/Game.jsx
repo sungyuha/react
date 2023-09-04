@@ -20,7 +20,7 @@ const Game = ({rows, columns}) => { // 매개변수로 받아옴
             {gameOver ? (
                 <Menu onClick={start} />
             ) : (
-                // 게임이 끝나지 않으면
+                // 게임이 끝나지 않으면 계속 실행되는 테트리스 화면
                 <Tetris rows={rows} columns={columns} setGameOver={setGameOver} />
             )}
         </div>
