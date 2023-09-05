@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Borad = () => {
+// useBoard에서 borad를 가져옴
+const Borad = ({board}) => {
+    console.log("board", board);
+
     return (
         <div className='board'>
             {/* 게임 시작 화면 구성 보드 */}
-            <p>Borad</p>
+            <p>Board</p>
         </div>
     );
 }
