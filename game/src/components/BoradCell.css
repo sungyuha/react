@@ -1,0 +1,6 @@
+/* 게임 보드 위치 */
+.boradCell {
+    width: auto;
+    border-radius: 6px;
+    position: relative;
+}
