@@ -1,8 +1,8 @@
 import React from 'react';
-import BoradCell from './BoradCell';
+import BoardCell from './BoardCell';
 
 // useBoard에서 borad를 가져옴
-const Borad = ({board}) => {
+const Board = ({board}) => {
     console.log("board", board);
 
     // 보드의 전체 행과 열을 보고 css 그리드를 설정
@@ -17,14 +17,14 @@ const Borad = ({board}) => {
             {/* 게임 시작 화면 구성 보드 */}
             {/* <p>Board</p> */}
 
-            {board.rows.map((row, y) =>
-                row.map((cell, x) => (
+                {board.rows.map((row, y) =>
                     // 각 각의 셀에 필요한 키를 제공 -> 기본셀, 셀 번호, 
-                    <BoradCell key={x * board.size.columns + x} cell={cell} />
-                ))
-            )}
+                    row.map((cell, x) => (
+                      <BoardCell key={x * board.size.columns + x} cell={cell} />
+                    ))
+                )}
         </div>
     );
 }
 
-export default Borad;
+export default Board;
