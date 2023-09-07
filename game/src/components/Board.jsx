@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardCell from './BoardCell';
+import './Board.css';
 
 // useBoard에서 borad를 가져옴
 const Board = ({board}) => {
