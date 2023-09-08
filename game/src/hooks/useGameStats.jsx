@@ -8,7 +8,6 @@ const buildGameStats = () => ({
     points: 0
 });
 
-
 export const useGameStats = () => {
     const [gameStats, setGameStats] = useState(buildGameStats()); // 게임 통계를 빌드
 
