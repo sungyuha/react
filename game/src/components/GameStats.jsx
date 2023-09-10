@@ -9,7 +9,7 @@ const GameStats = ({gameStats}) => { // gameStats를 받아옴
 
     return (
         // 게임 통계 구성 요소
-        <ul className='gameStats gameStats__left'>
+        <ul className='gameStats gameStats_right'>
             <li>Level</li>
             <li className='value'>{level}</li>
             <li>Line to level</li>
