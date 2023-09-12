@@ -3,7 +3,7 @@ import builBoard from '../business/Board';
 import BoardCell from './BoardCell';
 import transferToBoard from '../business/transferToBoard';
 
-const Preview = ({tetromino, idx}) => { 
+const Preview = ({tetromino, idx}) => { // tetromino, idx을 가져옴
     // 모양이 있어야하고, 클래스 이름이 있어야 함
     const {shape, className} = tetromino;
 
@@ -25,7 +25,14 @@ const Preview = ({tetromino, idx}) => {
     return (
         <div className='piece_preview' style={style}>
             <div className='preview-board'>
-                <BoardCell />
+                {/* 모든 보드의 행을 보고 map을 이용하여 반환 */}
+                {board.rows.map((row, y) => 
+                    // 각 행에 대해 모든 셀을 각 셀에 대해 보드 셀을 랜더링 
+                    row.map((cell, x) => (
+                        // 각 셀에 보드 셀을 랜더링, 고유한 키를 제공
+                        <BoardCell key={x * board.size.columns + x} cell={cell} />
+                    ))
+                )}
             </div>
         </div>
     );

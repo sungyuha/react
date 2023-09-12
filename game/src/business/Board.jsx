@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Board = () => {
+const Board = ({rows, columns}) => { // rows, columns을 가져옴
     return (
         <>
+            
         </>
     );
 }
