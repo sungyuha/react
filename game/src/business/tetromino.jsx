@@ -1,10 +1,10 @@
 import React from 'react';
 
-const transferToBoard = () => {
+const tetromino = () => {
     return (
         <>
         </>
     );
 }
 
-export default transferToBoard;
+export default tetromino;

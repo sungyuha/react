@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { buildBoard } from '../business/Game-Board';
+import { buildBoard } from '../business/GameBoard';
 
 export const useBorad = ({rows, columns}) => {
     // 초기 보드 상태
