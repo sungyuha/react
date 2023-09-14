@@ -14,6 +14,7 @@ const Preview = ({tetromino, idx}) => { // tetromino, idx을 가져옴
     const style = {top: `${idx * 15}vw`};
 
     // 미리보기를 사용하고 있는 테트리스 조각을 보드로 아래 하단과 같이 전송
+    // tetromino 보드로 전송
     board.rows = transferToBoard({
         className,
         isOccupied: false,
