@@ -1,3 +1,67 @@
+const className = "tetromino";
+
+// 테트리스 조각
+export const TETROMINOES = {
+    I: { // I는 기본적인 기능
+        shape: [
+        // 열에 대한 4개의 값
+        // 0이 있는 곳은 없는 곳, 1이 있는 곳은 실제 객체가 있음
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0]
+        ],
+        className: `${className} ${className}__i`
+    },
+    J: { // J모양
+        shape: [
+        [0, 1, 0],
+        [0, 1, 0],
+        [1, 1, 0]
+        ],
+        className: `${className} ${className}__j`
+    },
+    L: { // L모양
+        shape: [
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 1]
+        ],
+        className: `${className} ${className}__l`
+    },
+    O: { // ㅁ모양
+        shape: [
+        [1, 1],
+        [1, 1]
+        ],
+        className: `${className} ${className}__o`
+    },
+    S: { // S모양
+        shape: [
+        [0, 1, 1],
+        [1, 1, 0],
+        [0, 0, 0]
+        ],
+        className: `${className} ${className}__s`
+    },
+    T: { // T모양
+        shape: [
+        [1, 1, 1],
+        [0, 1, 0],
+        [0, 0, 0]
+        ],
+        className: `${className} ${className}__t`
+    },
+    Z: { // 지그재그 모양
+        shape: [
+        [1, 1, 0],
+        [0, 1, 1],
+        [0, 0, 0]
+        ],
+        className: `${className} ${className}__z`
+    }
+};
+
 export const transferToBoard = ({
     // 클래스이름, 보드의 공간을 차지하지 않는지, 테트리스 조각 모양의 보드 내 위치는 무엇인지
     className,
