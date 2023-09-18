@@ -62,6 +62,18 @@ export const TETROMINOES = {
     }
 };
 
+// 모든 TETROMINOES에 대한 키를 가져가면 됨
+// t-z-i-j-s 이를 키로 저장하면 
+export const randomTetromino = () => {
+    const keys = Object.keys(TETROMINOES);
+    // 임의의 숫자를 생성하여 여기에 있는 키의 마지막 index에 제공
+    const index = Math.floor(Math.random() * keys.length);
+    // 그리고 키 중에서 index 위치에서 실제 keys를 찾아야 함
+    const key = keys[index];
+    // 예를들면 T의 key를 찾으라 하면 t로 반환
+    return TETROMINOES[key];
+};
+
 export const transferToBoard = ({
     // 클래스이름, 보드의 공간을 차지하지 않는지, 테트리스 조각 모양의 보드 내 위치는 무엇인지
     className,
