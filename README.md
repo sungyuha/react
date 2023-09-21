@@ -14,4 +14,3 @@
     - Virtual DOM
     - useRef
     - useContext + Context API
-    - 테트리스 게임 만들기 (진행중!!)
