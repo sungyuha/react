@@ -1,7 +1,7 @@
 import React from 'react';
 import GameBoard from '../business/GameBoard';
 import BoardCell from './BoardCell';
-import {transferToBoard} from '../business/Tetromino';
+import {transferToBoard} from '../business/tetromino';
 
 const Preview = ({tetromino, idx}) => { // tetromino, idx을 가져옴
     // 모양이 있어야하고, 클래스 이름이 있어야 함
