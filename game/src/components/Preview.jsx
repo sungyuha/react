@@ -1,5 +1,5 @@
 import React from 'react';
-import GameBoard from '../business/GameBoard';
+import GameBoard from '../business/buildBoard';
 import BoardCell from './BoardCell';
 import {transferToBoard} from '../business/tetromino';
 
