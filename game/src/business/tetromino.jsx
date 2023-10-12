@@ -1,4 +1,4 @@
-const className = "tetromino";
+const className = 'tetromino';
 
 // 테트리스 조각
 export const TETROMINOES = {
@@ -72,6 +72,18 @@ export const randomTetromino = () => {
     const key = keys[index];
     // 예를들면 T의 key를 찾으라 하면 t로 반환
     return TETROMINOES[key];
+};
+
+export const rotate = ({ piece, direction }) => {
+    // 컬럼의 행과 열을 바꾸기
+    const newPiece = piece.map((_, index) =>
+        piece.map((column) => column[index])
+    );
+
+    // 행을 뒤집어 회전 된 행을 얻음
+    if (direction > 0) return newPiece.map((row) => row.reverse());
+
+    return newPiece.reverse();
 };
 
 export const transferToBoard = ({
