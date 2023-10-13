@@ -16,8 +16,11 @@ const Tetris = ({rows, columns, setGameOver}) => { // game에서 매개변수로
 
     // 게임 구성 보드를 확인해줄 커스텀훅
     const [board, setBoard] = useBorad({
-        rows, 
-        columns
+        rows,
+        columns,
+        player,
+        resetPlayer,
+        addLinesCleared // 줄이 지워지는 것을 처리
     }); // 보드에 사용 될 행과 열이 필요해서 전달
     
     return (

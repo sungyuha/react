@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import buildBoard from '../business/buildBoard';
 
-export const useBorad = ({rows, columns}) => {
+export const useBorad = ({
+        rows,
+        columns,
+        player,
+        resetPlayer,
+        addLinesCleared
+    }) => {
     // 초기 보드 상태
     const [board] = useState(buildBoard({rows, columns})); // 함수를 호출하여 행과 열로 보드 제작
 
