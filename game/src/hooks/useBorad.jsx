@@ -14,8 +14,10 @@ export const useBorad = ({
     useEffect(() => {
         // 보드를 업데이트
         setBoard((previousBoard) =>
+        // 보드라는 함수를 호출
             nextBoard({
                 board: previousBoard,
+                // 보드가 무엇이든 다음 플레이어의 현 상태를 제공하고, 플레이어를 재설정
                 player,
                 resetPlayer,
                 addLinesCleared

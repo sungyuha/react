@@ -1,6 +1,6 @@
-import {defaultCell} from './Cell';
+import {defaultCell} from '../business/Cell';
 
-const buildBoard = ({ rows, columns }) => {
+export const buildBoard = ({ rows, columns }) => {
     // 게임 보드 행에 필요한 배열을 만들고 싶은 행과 열을 가져온 다음에 각 행에 대해 배열을 만듬
     const builtRows = Array.from({ length: rows }, () =>
         // 열을 나타냄. 또한 보드에 각 열에 기본 셀을 설정
@@ -14,7 +14,9 @@ const buildBoard = ({ rows, columns }) => {
         size: { rows, columns }
     };
 };
-
-export default buildBoard;
-
 // 빈 보드를 만들기 위한 작은 함수
+
+// 테트리스 플레이어의 위치에 액세스
+export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
+    const { tetromino, position } = player;
+}    
