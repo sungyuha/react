@@ -49,4 +49,30 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         rows,
         shape: tetromino.shape
     });
+
+    // 떨어지는 테트리스 조각
+    // 테트리스 조각끼리 충돌한 경우 보드 셀을 충돌한 것으로 표시
+    if (!player.isFastDropping) {
+            rows = transferToBoard({
+            className: tetromino.className,
+            isOccupied: player.collided,
+            position,
+            rows,
+            shape: tetromino.shape
+        });
+    }
+
+    // 지워진 라인을 확인
+    const blankRow = rows[0].map((_) => ({ ...defaultCell }));
+    let linesCleared = 0;
+    rows = rows.reduce((acc, row) => {
+        if (row.every((column) => column.occupied)) {
+        linesCleared++;
+        acc.unshift([...blankRow]);
+        } else {
+        acc.push(row);
+        }
+
+        return acc;
+    }, []);
 }
