@@ -75,4 +75,15 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
 
         return acc;
     }, []);
+
+    // 테트리스 조각끼리 충돌했으면, 플레이어를 재설정!
+    if (linesCleared > 0) {
+        addLinesCleared(linesCleared);
+    }
+
+    // 다음과 같은 보드를 반환
+    return {
+        rows,
+        size: { ...board.size }
+    };
 }
