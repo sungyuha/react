@@ -19,3 +19,10 @@ export const Key = {
     KeyP: Action.Pause,
     Space: Action.FastDrop
 };
+
+// 액션
+export const actionIsDrop = (action) =>
+    [Action.SlowDrop, Action.FastDrop].includes(action);
+
+    // 키 코드
+export const actionForKey = (keyCode) => Key[keyCode];
