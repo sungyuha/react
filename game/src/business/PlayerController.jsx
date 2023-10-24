@@ -26,3 +26,11 @@ const position = player.position;
         return false;
     }
 };
+
+// 움직이는 플레이어일때
+export const movePlayer = ({ delta, position, shape, board }) => {
+    const desiredNextPosition = {
+        row: position.row + delta.row,
+        column: position.column + delta.column
+    };
+}
