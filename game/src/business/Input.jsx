@@ -24,5 +24,5 @@ export const Key = {
 export const actionIsDrop = (action) =>
     [Action.SlowDrop, Action.FastDrop].includes(action);
 
-    // 키 코드
+// 키 코드
 export const actionForKey = (keyCode) => Key[keyCode];
