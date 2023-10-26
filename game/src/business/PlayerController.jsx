@@ -16,8 +16,8 @@ const position = player.position;
 
     if (isValidRotation) {
         setPlayer({
-        ...player,
-        tetromino: {
+            ...player,
+            tetromino: {
             ...player.tetromino,
             shape
         }

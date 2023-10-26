@@ -21,6 +21,7 @@ const Board = ({board}) => {
                 {board.rows.map((row, y) =>
                     // 각 각의 셀에 필요한 키를 제공 -> 기본셀, 셀 번호, 
                     row.map((cell, x) => (
+                        // BoardCell의 Key
                       <BoardCell key={x * board.size.columns + x} cell={cell} />
                     ))
                 )}
