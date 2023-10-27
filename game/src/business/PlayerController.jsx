@@ -18,9 +18,9 @@ const position = player.position;
         setPlayer({
             ...player,
             tetromino: {
-            ...player.tetromino,
-            shape
-        }
+                ...player.tetromino,
+                shape
+            }
         });
     } else {
         return false;
