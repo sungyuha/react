@@ -33,4 +33,11 @@ export const movePlayer = ({ delta, position, shape, board }) => {
         row: position.row + delta.row,
         column: position.column + delta.column
     };
-}
+
+    // 테트리스 조각끼리 충돌하는 경우
+    const collided = hasCollision({
+        board,
+        position: desiredNextPosition,
+        shape
+    });
+};
