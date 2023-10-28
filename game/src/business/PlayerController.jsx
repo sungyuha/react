@@ -40,4 +40,10 @@ export const movePlayer = ({ delta, position, shape, board }) => {
         position: desiredNextPosition,
         shape
     });
+
+    // 충돌하면 게임오버
+    const isGameOver = collided && player.position.row === 0;
+    if (isGameOver) {
+        setGameOver(isGameOver);
+    }
 };
