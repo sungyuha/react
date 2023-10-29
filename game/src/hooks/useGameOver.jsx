@@ -10,5 +10,6 @@ export const useGameOver = () => {
         setGameOver(false);
     }, []); // 빈 객체 전달
 
+    // 게임 상태 반환
     return [gameOver, setGameOver, resetGameOver];
 };
