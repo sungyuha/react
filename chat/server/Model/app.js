@@ -8,4 +8,6 @@ const app = express();
 mongoose.connect("데이터베이스 주소", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+}).then(() => console.log("connected to database")); // 위의 주소로 연결 완료되면 connected to database 출략
+
+module.exports = app;
