@@ -1,6 +1,8 @@
 // 데이터베이스에 연결
 // 서버는 모두에게 접근을 허락하지 않음!
 
+// nodemon : 파일에 변화가 생기면 자동으로 리로딩을 해줌
+
 const express = require("express");
 const mongoose = require("mongoose");
 // .env 사용하기 위해 설정
