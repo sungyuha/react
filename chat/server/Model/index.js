@@ -14,6 +14,9 @@ const io = new Server(httpServer, {
     },
 });
 
+// io를 보냄
+require("../utils/io")(io);
+
 // 포트 넘버 오픈
 httpServer.listen(process.env.PORT, () => {
     console.log("Server listening on port", process.env.PORT);
