@@ -9,7 +9,7 @@ module.exports = function(io) { // io를 매개변수로 받아옴
             // 에러 핸들링
             try { // 괜찮은 케이스
                 // 받은 유저 정보를 저장하고 소켓 아이디 저장
-                const user = userContorller.saveUser(userName, socket.id);
+                const user = await userContorller.saveUser(userName, socket.id);
                 cb({ok:true, deta:user}) // cb: 콜백함수
             } catch(error) { // 에러 케이스
                 cb({ok: false, error:error.massage}) // 콜백함수 재호출 -> 에러메시지 출력
