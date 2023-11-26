@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import socket from './server';
 
 function App() {
+  const [user, setUser] = useState; // 유저 정보 저장
   useEffect(() => {
     askUserName();
   }, []);
@@ -12,7 +13,9 @@ function App() {
     console.log('uuu', userName);
 
     socket.emit('login', userName, (res) => { // emit(대화의 제목, 보낼내용, 콜백함수)
-      console.log('Res', res);
+      if(res?.ok) {
+        setUser(res.data) // 맞으면 setUser정보을 받은 res.data값으로 저장
+      }
     }) // emit함수가 잘 처리가되면 마지막에 콜백함수로 응답 받음
   };
 
