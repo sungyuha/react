@@ -1,0 +1,60 @@
+.input-area {
+    background-color: red;
+    min-height:50px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/* 추가 버튼 */
+.plus-button{
+    background-color: lightslategray;
+    width: 50px;
+    color:white;
+    font-weight: bold;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+/* 입력창 컨테이너 박스 */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MuiInput-root{
+    height: 100%;
+    width: 100%;
+    border:none;
+    border-color: white;
+}
+
+/* 입력창 */
+input{
+    border:none;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+}
+input:focus{
+    outline:none;
+}
+
+/* 버튼 */
+.send-button{
+    min-width: 70px;
+    border-radius:0;
+    background-color:#F7E600; 
+    border:none;
+}
+/* 버튼을 누를 때 */
+.send-button:hover {
+    cursor:pointer;
+}
+/* 버튼 누르는 이벤트 발생 시 */
+.send-button:active {
+    background-color: yellow;
+}
