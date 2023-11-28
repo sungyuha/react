@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import socket from './server';
+import InputField from './compoents/inputField/inputField';
 
 function App() {
   const [user, setUser] = useState; // 유저 정보 저장
+  const [message, setMessage] = useState(''); // 유저가 입력 한 값 저장
+
   useEffect(() => {
     askUserName();
   }, []);
@@ -19,9 +22,17 @@ function App() {
     }) // emit함수가 잘 처리가되면 마지막에 콜백함수로 응답 받음
   };
 
+  const sendMessage = () => {};
+
   return (
     <div>
-      
+      <div>
+        <InputField 
+          message={message} 
+          setMessage={setMessage} 
+          sendMessage={sendMessage} 
+        />
+      </div>
     </div>
   );
 }
