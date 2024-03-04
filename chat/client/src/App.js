@@ -13,7 +13,7 @@ function App() {
 
   const askUserName = () => {
     const userName = prompt('당신의 이름을 입력하세요'); // 웹 사이트에 이름을 입력해서 로그인하면 프롬프트 호출
-    console.log('uuu', userName);
+    console.log('users', userName);
 
     socket.emit('login', userName, (res) => { // emit(대화의 제목, 보낼내용, 콜백함수)
       if(res?.ok) {
